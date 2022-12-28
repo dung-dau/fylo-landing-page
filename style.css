@@ -1,6 +1,9 @@
 :root {
   --clr-very-dark-blue: hsl(243, 87%, 12%);
+  --clr-desaturated-blue: hsl(238, 22%, 44%);
 }
+
+/* TODO: incorporate grid when refactoring */
 
 * {
   box-sizing: border-box;
@@ -26,6 +29,7 @@ h1 {
 
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
 li {
@@ -38,12 +42,12 @@ p {
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   padding-top: 0.5rem;
-  margin: 0.5rem 1.5rem;
-  margin-bottom: 7.5rem;
+  margin-inline: 1.5rem;
+  margin-bottom: 5rem;
 }
 
 button {
@@ -60,8 +64,13 @@ button {
   height: 1.5rem;
 }
 
+.nav-list {
+  grid-column: 2 / 4;
+  justify-self: end;
+}
+
 .nav-list-item {
-  margin-left: 1.25rem;
+  margin-left: clamp(0.5rem, 1rem, 1.5rem);
   font-size: 12px;
   color: var(--clr-very-dark-blue);
   font-weight: 500;
@@ -72,9 +81,8 @@ button {
 }
 
 .email-input-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  place-items: center;
 }
 
 .email-input {
@@ -83,7 +91,7 @@ button {
   height: 40px;
   border-radius: 5px;
   outline: none;
-  border: 1px solid var(--clr-very-dark-blue);
+  border: 1px solid var(--clr-desaturated-blue);
 }
 
 .margin-bottom-2 {
@@ -94,6 +102,7 @@ button {
   margin-bottom: 2rem;
 }
 
+/* candidate for a variable */
 .padding-x-3 {
   padding-inline: 1.5rem;
 }
@@ -101,16 +110,18 @@ button {
 .second-content-container {
   padding-inline: 0;
   margin: 0;
+  background-color: hsl(240, 75%, 98%);
 }
 
-.second-illustration-container {
-  background: hsl(240, 75%, 98%);
-  background: linear-gradient(
-    180deg,
-    hsl(240, 75%, 98%) 0%,
-    hsl(0, 0%, 100%) 100%
-  );
+.second-content-container > p {
+  color: var(--clr-desaturated-blue);
+  padding-inline: 1.5rem;
+}
+
+.second-illustration {
+  background-color: hsl(240, 75%, 98%);
   margin-bottom: 6rem;
+  padding-inline: 1.5rem;
 }
 
 .second-content-heading {
@@ -127,31 +138,93 @@ button {
   justify-content: center;
   align-items: center;
   align-content: center;
+  background-color: hsl(240, 75%, 98%);
 }
 
 .fylo-link {
   color: hsl(170, 45%, 43%);
+  font-size: 13px;
+  /* "underline" for the link */
   border-bottom: 1px solid hsl(170, 45%, 43%);
   padding-bottom: 7px;
 }
 
 .arrow {
   color: hsl(170, 45%, 43%);
-  /* connects the underline to the one with the link text */
+  /* underline for the arrow icon */
   border-bottom: 1px solid hsl(170, 45%, 43%);
-  /* sets the perfect height so that the borders align */
-  height: 37.5px;
+  /* sets the perfect height so that the underlines align */
+  height: 36px;
+  /* using the gap or margin properties will cause the underline to disconnect */
   padding-left: 5px;
   width: auto;
 }
 
-/* Small mobile device styles */
-@media screen and (max-width: 320px) {
-  .nav-list-item {
-    margin-left: 0.5rem;
-  }
+/* allows the inner card to have a white background */
+.testimonial-card-container {
+  background-color: hsl(240, 75%, 98%);
+}
 
-  header {
-    margin-bottom: 6rem;
-  }
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10rem;
+  margin-inline: 3rem;
+  text-align: left;
+  padding-inline: 2rem;
+  margin-bottom: 5rem;
+  box-shadow: 2px 2px 4px 4px #f1f0f6;
+}
+
+.testimonial-profile {
+  justify-self: start;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.testimonial-font {
+  font-size: 10px;
+  grid-row: 1 / span 2;
+}
+
+.testimonial-profile-picture {
+  border-radius: 50%;
+  margin-top: 12%;
+  height: 2rem;
+  width: auto;
+}
+
+.testimonial-profile-info > h1 {
+  font-size: 10px;
+  line-height: 0.75;
+}
+
+.testimonial-profile-info > h2 {
+  font-size: 8px;
+}
+
+article {
+  background-color: hsl(238, 22%, 44%);
+  color: white;
+  padding: 3rem 2rem;
+}
+
+article > h1 {
+  font-size: 18px;
+}
+
+article > p {
+  font-size: 13px;
+}
+
+footer {
+  background-color: hsl(243, 87%, 12%);
+  color: white;
+}
+
+.footer-logo {
+  color: white;
 }
