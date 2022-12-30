@@ -223,8 +223,45 @@ article > p {
 footer {
   background-color: hsl(243, 87%, 12%);
   color: white;
+  /* candidate for a variable */
+  padding: 2rem 2.5rem;
+  text-align: left;
+  height: 100vh;
+}
+
+footer *:where(:not(:last-child)) {
+  margin-bottom: 4rem;
+}
+
+footer li {
+  display: block;
+  margin-bottom: 1rem;
 }
 
 .footer-logo {
-  color: white;
+  margin-bottom: 1.5rem;
+  height: 6rem;
+  display: flex;
+  place-items: center start;
+}
+
+.footer-logo > svg {
+  transform: scale(1.5);
+}
+
+.phone-icon {
+  display: inline-block;
+  height: 15px;
+  width: auto;
+}
+
+.email-icon {
+  display: inline-block;
+  height: 15px;
+  width: auto;
+}
+
+.contact-info-list > li {
+  display: flex;
+  gap: 1rem;
 }
