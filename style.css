@@ -1,9 +1,11 @@
 :root {
-  --clr-very-dark-blue: hsl(243, 87%, 12%);
-  --clr-desaturated-blue: hsl(238, 22%, 44%);
+  --clr-primary-text: hsl(243, 87%, 12%);
+  /* affects the early access box background color and email input borders */
+  --clr-theme-secondary: hsl(238, 22%, 44%);
+  /* affects the background color of the stay productive section */
+  --clr-second-background: hsl(240, 75%, 98%);
+  --clr-flyo-link: hsl(170, 45%, 43%);
 }
-
-/* TODO: incorporate grid when refactoring */
 
 * {
   box-sizing: border-box;
@@ -12,7 +14,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
-  color: var(--clr-very-dark-blue);
+  color: var(--clr-primary-text);
   margin: 0;
 }
 
@@ -72,7 +74,7 @@ button {
 .nav-list-item {
   margin-left: clamp(0.5rem, 1rem, 1.5rem);
   font-size: 12px;
-  color: var(--clr-very-dark-blue);
+  color: var(--clr-primary-text);
   font-weight: 500;
 }
 
@@ -91,7 +93,7 @@ button {
   height: 40px;
   border-radius: 5px;
   outline: none;
-  border: 1px solid var(--clr-desaturated-blue);
+  border: 1px solid var(--clr-theme-secondary);
 }
 
 .margin-bottom-2 {
@@ -110,16 +112,16 @@ button {
 .second-content-container {
   padding-inline: 0;
   margin: 0;
-  background-color: hsl(240, 75%, 98%);
+  background-color: var(--clr-second-background);
 }
 
 .second-content-container > p {
-  color: var(--clr-desaturated-blue);
+  color: var(--clr-theme-secondary);
   padding-inline: 1.5rem;
 }
 
 .second-illustration {
-  background-color: hsl(240, 75%, 98%);
+  background-color: var(--clr-second-background);
   margin-bottom: 6rem;
   padding-inline: 1.5rem;
 }
@@ -138,21 +140,21 @@ button {
   justify-content: center;
   align-items: center;
   align-content: center;
-  background-color: hsl(240, 75%, 98%);
+  background-color: var(--clr-second-background);
 }
 
 .fylo-link {
-  color: hsl(170, 45%, 43%);
+  color: var(--clr-flyo-link);
   font-size: 13px;
   /* "underline" for the link */
-  border-bottom: 1px solid hsl(170, 45%, 43%);
+  border-bottom: 1px solid var(--clr-flyo-link);
   padding-bottom: 7px;
 }
 
 .arrow {
-  color: hsl(170, 45%, 43%);
+  color: var(--clr-flyo-link);
   /* underline for the arrow icon */
-  border-bottom: 1px solid hsl(170, 45%, 43%);
+  border-bottom: 1px solid var(--clr-flyo-link);
   /* sets the perfect height so that the underlines align */
   height: 36px;
   /* using the gap or margin properties will cause the underline to disconnect */
@@ -162,7 +164,7 @@ button {
 
 /* allows the inner card to have a white background */
 .testimonial-card-container {
-  background-color: hsl(240, 75%, 98%);
+  background-color: var(--clr-second-background);
 }
 
 .testimonial-card {
@@ -207,7 +209,7 @@ button {
 }
 
 article {
-  background-color: hsl(238, 22%, 44%);
+  background-color: var(--clr-theme-secondary);
   color: white;
   padding: 3rem 2rem;
 }
@@ -264,4 +266,37 @@ footer li {
 .contact-info-list > li {
   display: flex;
   gap: 1rem;
+}
+
+@media screen and (min-width: 653px) {
+  .first-outer-div {
+    display: flex;
+    align-items: center;
+  }
+
+  .first-content {
+    order: -1;
+  }
+
+  .email-input-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .email-input-container > input {
+    margin: auto;
+    margin-bottom: 0;
+  }
+
+  .email-input-container > button {
+    justify-self: start;
+  }
+
+  .second-outer-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .second-illustration {
+    order: 2;
+  }
 }
