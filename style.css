@@ -299,4 +299,18 @@ footer li {
   .second-illustration {
     order: 2;
   }
+
+  .fylo-link-container {
+    justify-content: flex-start;
+    padding-inline: 1.5rem;
+  }
+
+  .testimonial-card-container {
+    text-align: center;
+    justify-content: flex-start;
+  }
+
+  .testimonial-card {
+    width: 20rem;
+  }
 }
