@@ -313,4 +313,34 @@ footer li {
   .testimonial-card {
     width: 20rem;
   }
+
+  article {
+    display: flex;
+  }
+
+  article > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .early-access-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    text-align: left;
+  }
+
+  .footer-lists-container {
+    display: flex;
+    gap: 15rem;
+    height: 10rem;
+  }
+
+  footer {
+    padding-top: 7rem;
+    padding-left: 5rem;
+    padding-bottom: 9rem;
+    height: 60vh;
+  }
 }
